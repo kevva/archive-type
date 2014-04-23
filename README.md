@@ -28,7 +28,7 @@ archiveType(buf);
 
 ### archiveType(buf)
 
-Returns [`7z`](https://github.com/kevva/iz-7zip), [`bz2`](https://github.com/kevva/iz-bzip2), [`gz`](https://github.com/kevva/iz-gzip), [`gz`](https://github.com/kevva/iz-gzip), [`rar`](https://github.com/kevva/iz-rar), [`tar`](https://github.com/kevva/iz-tar), [`zip`](https://github.com/kevva/iz-zip) or `false`.
+Returns [`7z`](https://github.com/kevva/is-7zip), [`bz2`](https://github.com/kevva/is-bzip2), [`gz`](https://github.com/kevva/is-gzip), [`gz`](https://github.com/kevva/is-gzip), [`rar`](https://github.com/kevva/is-rar), [`tar`](https://github.com/kevva/is-tar), [`zip`](https://github.com/kevva/is-zip) or `false`.
 
 #### buf
 
