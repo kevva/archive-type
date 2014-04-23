@@ -1,0 +1,28 @@
+{
+  "name": "archive-type",
+  "version": "0.1.0",
+  "description": "Detect the archive type of a Buffer/Uint8Array",
+  "license": "MIT",
+  "repository": "kevva/archive-type",
+  "main": "browser.js",
+  "ignore": [
+    ".*",
+    "component.json",
+    "LICENSE.md",
+    "package.json",
+    "test"
+  ],
+  "keywords": [
+    "archive",
+    "buffer",
+    "bz2",
+    "bzip2",
+    "check",
+    "detect",
+    "gz",
+    "gzip",
+    "rar",
+    "zip",
+    "type"
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "name": "archive-type",
+  "version": "0.1.0",
+  "description": "Detect the archive type of a Buffer/Uint8Array",
+  "license": "MIT",
+  "repository": "kevva/archive-type",
+  "author": {
+    "name": "Kevin Mårtensson",
+    "email": "kevinmartensson@gmail.com",
+    "url": "https://github.com/kevva"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "bin": {
+    "archive-type": "cli.js"
+  },
+  "scripts": {
+    "browser": "browserify -s $npm_package_name -o browser.js .",
+    "test": "mocha --reporter list"
+  },
+  "files": [
+    "cli.js",
+    "index.js"
+  ],
+  "keywords": [
+    "archive",
+    "buffer",
+    "bz2",
+    "bzip2",
+    "check",
+    "detect",
+    "gz",
+    "gzip",
+    "rar",
+    "zip",
+    "type"
+  ],
+  "dependencies": {
+    "is-bzip2": "^0.1.0",
+    "is-gzip": "^0.1.0",
+    "is-rar": "^0.1.0",
+    "is-tar": "^0.1.0",
+    "is-zip": "^0.1.0"
+  },
+  "devDependencies": {
+    "browserify": "^3.44.2",
+    "mocha": "^1.18.2"
+  }
+}
