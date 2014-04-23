@@ -26,6 +26,16 @@ archiveType(buf);
 // => zip
 ```
 
+### archiveType(buf)
+
+Returns [`7z`](https://github.com/kevva/iz-7zip), [`bz2`](https://github.com/kevva/iz-bzip2), [`gz`](https://github.com/kevva/iz-gzip), [`gz`](https://github.com/kevva/iz-gzip), [`rar`](https://github.com/kevva/iz-rar), [`tar`](https://github.com/kevva/iz-tar), [`zip`](https://github.com/kevva/iz-zip) or `false`.
+
+#### buf
+
+Type: `Buffer`, `uint8array`
+
+Accepts a `Buffer` or a `uint8array`.
+
 ## CLI
 
 You can also use it as a CLI app by installing it globally:
