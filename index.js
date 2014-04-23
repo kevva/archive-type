@@ -12,6 +12,10 @@ module.exports = function (buf) {
         return false;
     }
 
+    if (require('is-7zip')(buf)) {
+        return '7z';
+    }
+
     if (require('is-bzip2')(buf)) {
         return 'bz2';
     }

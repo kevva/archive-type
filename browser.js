@@ -13,6 +13,10 @@ module.exports = function (buf) {
         return false;
     }
 
+    if (_dereq_('is-7zip')(buf)) {
+        return '7z';
+    }
+
     if (_dereq_('is-bzip2')(buf)) {
         return 'bz2';
     }
@@ -36,7 +40,25 @@ module.exports = function (buf) {
     return false;
 };
 
-},{"is-bzip2":2,"is-gzip":3,"is-rar":4,"is-tar":5,"is-zip":6}],2:[function(_dereq_,module,exports){
+},{"is-7zip":2,"is-bzip2":3,"is-gzip":4,"is-rar":5,"is-tar":6,"is-zip":7}],2:[function(_dereq_,module,exports){
+'use strict';
+
+/**
+ * Check if a Buffer/Uint8Array is a 7ZIP file
+ *
+ * @param {Buffer} buf
+ * @api public
+ */
+
+module.exports = function (buf) {
+    if (!buf || buf.length < 5) {
+        return false;
+    }
+
+    return buf[0] === 55 && buf[1] === 122 && buf[2] === 188 && buf[3] === 175 && buf[4] === 39 && buf[5] === 28;
+};
+
+},{}],3:[function(_dereq_,module,exports){
 'use strict';
 
 /**
@@ -54,7 +76,7 @@ module.exports = function (buf) {
     return buf[0] === 66 && buf[1] === 90 && buf[2] === 104;
 };
 
-},{}],3:[function(_dereq_,module,exports){
+},{}],4:[function(_dereq_,module,exports){
 'use strict';
 
 /**
@@ -72,7 +94,7 @@ module.exports = function (buf) {
     return buf[0] === 31 && buf[1] === 139 && buf[2] === 8;
 };
 
-},{}],4:[function(_dereq_,module,exports){
+},{}],5:[function(_dereq_,module,exports){
 'use strict';
 
 /**
@@ -90,7 +112,7 @@ module.exports = function (buf) {
     return buf[0] === 82 && buf[1] === 97 && buf[2] === 114 && buf[3] === 33 && buf[4] === 26 && buf[5] === 7 && (buf[6] === 0 || buf[6] === 1);
 };
 
-},{}],5:[function(_dereq_,module,exports){
+},{}],6:[function(_dereq_,module,exports){
 'use strict';
 
 /**
@@ -108,7 +130,7 @@ module.exports = function (buf) {
     return buf[257] === 117 && buf[258] === 115 && buf[259] === 116 && buf[260] === 97 && buf[261] === 114;
 };
 
-},{}],6:[function(_dereq_,module,exports){
+},{}],7:[function(_dereq_,module,exports){
 'use strict';
 
 /**

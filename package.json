@@ -24,6 +24,7 @@
     "index.js"
   ],
   "keywords": [
+    "7zip",
     "archive",
     "buffer",
     "bz2",
@@ -37,6 +38,7 @@
     "type"
   ],
   "dependencies": {
+    "is-7zip": "^0.1.0",
     "is-bzip2": "^0.1.0",
     "is-gzip": "^0.1.0",
     "is-rar": "^0.1.0",
