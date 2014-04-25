@@ -2,9 +2,9 @@
 'use strict';
 
 var archiveType = require('./');
-var fs = require('fs');
 var input = process.argv.slice(2);
 var pkg = require('./package.json');
+var readChunk = require('read-chunk');
 var stdin = require('get-stdin');
 
 /**
@@ -65,7 +65,7 @@ if (process.stdin.isTTY) {
         return;
     }
 
-    run(fs.readFileSync(input));
+    run(readChunk(input, 0, 261));
 } else {
     stdin(function (data) {
         run(data);

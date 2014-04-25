@@ -43,7 +43,8 @@
     "is-gzip": "^0.1.0",
     "is-rar": "^0.1.0",
     "is-tar": "^0.1.0",
-    "is-zip": "^0.1.0"
+    "is-zip": "^0.1.0",
+    "read-chunk": "^0.1.0"
   },
   "devDependencies": {
     "browserify": "^3.44.2",
