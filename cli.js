@@ -65,7 +65,7 @@ if (process.stdin.isTTY) {
         return;
     }
 
-    run(readChunk(input, 0, 261));
+    run(readChunk.sync(input, 0, 261));
 } else {
     stdin(function (data) {
         run(data);
