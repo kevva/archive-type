@@ -33,6 +33,7 @@
     "detect",
     "gz",
     "gzip",
+    "mime",
     "rar",
     "zip",
     "type"
