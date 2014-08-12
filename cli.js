@@ -49,7 +49,7 @@ function run(data) {
         return console.log(type);
     }
 
-    console.log('Not a recognized archive');
+    console.error('Not a recognized archive');
     process.exit(1);
 }
 
