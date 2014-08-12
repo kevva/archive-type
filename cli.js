@@ -26,8 +26,8 @@ function help() {
  */
 
 if (input.indexOf('-h') !== -1 || input.indexOf('--help') !== -1) {
-    help();
-    return;
+    return help();
+
 }
 
 /**
@@ -35,8 +35,7 @@ if (input.indexOf('-h') !== -1 || input.indexOf('--help') !== -1) {
  */
 
 if (input.indexOf('-v') !== -1 || input.indexOf('--version') !== -1) {
-    console.log(pkg.version);
-    return;
+    return console.log(pkg.version);
 }
 
 /**
@@ -44,15 +43,14 @@ if (input.indexOf('-v') !== -1 || input.indexOf('--version') !== -1) {
  */
 
 function run(data) {
-    var type = archiveType(data);
+    var type = archiveType(new Buffer(data));
 
     if (type) {
-        console.log(type);
-        return;
+        return console.log(type);
     }
 
     console.log('Not a recognized archive');
-    return;
+    process.exit(1);
 }
 
 /**
