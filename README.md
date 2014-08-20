@@ -5,18 +5,9 @@
 
 ## Install
 
-```bash
+```sh
 $ npm install --save archive-type
 ```
-
-```bash
-$ component install kevva/archive-type
-```
-
-```bash
-$ bower install --save archive-type
-```
-
 
 ## Usage
 
@@ -40,14 +31,15 @@ Returns [`7z`](https://github.com/kevva/is-7zip), [`bz2`](https://github.com/kev
 
 Type: `buffer` *(Node.js)*, `uint8array`
 
+It only needs the first 261 bytes.
 
 ## CLI
 
-```bash
+```sh
 $ npm install --global archive-type
 ```
 
-```bash
+```sh
 $ archive-type --help
 
 Usage
