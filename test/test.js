@@ -1,17 +1,20 @@
 'use strict';
 
 var archiveType = require('../');
-var fs = require('fs');
 var path = require('path');
+var read = require('fs').readFile;
 var test = require('ava');
 
 test('detect archive type from Buffer', function (t) {
-    t.plan(2);
+    t.plan(4);
 
-    function c(file) {
-        return archiveType(fs.readFileSync(file));
-    }
+    read(path.join(__dirname, 'fixtures/test.tar'), function (err, buf) {
+        t.assert(!err);
+        t.assert(archiveType(buf) === 'tar');
 
-    t.assert(c(path.join(__dirname, 'fixtures/test.tar')) === 'tar');
-    t.assert(c(path.join(__dirname, 'fixtures/test.zip')) === 'zip');
+        read(path.join(__dirname, 'fixtures/test.zip'), function (err, buf) {
+            t.assert(!err);
+            t.assert(archiveType(buf) === 'zip');
+        });
+    });
 });
