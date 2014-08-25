@@ -39,16 +39,15 @@
   ],
   "dependencies": {
     "get-stdin": "^2.0.0",
-    "is-7zip": "^0.1.0",
-    "is-bzip2": "^0.1.0",
-    "is-gzip": "^0.1.0",
-    "is-rar": "^0.1.0",
-    "is-tar": "^0.1.1",
-    "is-zip": "^0.1.0",
+    "is-7zip": "^1.0.0",
+    "is-bzip2": "^1.0.0",
+    "is-gzip": "^1.0.0",
+    "is-rar": "^1.0.0",
+    "is-tar": "^1.0.0",
+    "is-zip": "^1.0.0",
     "read-chunk": "^1.0.0"
   },
   "devDependencies": {
-    "ava": "0.0.4",
-    "browserify": "^5.10.0"
+    "ava": "0.0.4"
   }
 }
