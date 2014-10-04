@@ -8,33 +8,33 @@
  */
 
 module.exports = function (buf) {
-    if (!buf) {
-        return false;
-    }
+	if (!buf) {
+		return false;
+	}
 
-    if (require('is-7zip')(buf)) {
-        return '7z';
-    }
+	if (require('is-7zip')(buf)) {
+		return '7z';
+	}
 
-    if (require('is-bzip2')(buf)) {
-        return 'bz2';
-    }
+	if (require('is-bzip2')(buf)) {
+		return 'bz2';
+	}
 
-    if (require('is-gzip')(buf)) {
-        return 'gz';
-    }
+	if (require('is-gzip')(buf)) {
+		return 'gz';
+	}
 
-    if (require('is-rar')(buf)) {
-        return 'rar';
-    }
+	if (require('is-rar')(buf)) {
+		return 'rar';
+	}
 
-    if (require('is-tar')(buf)) {
-        return 'tar';
-    }
+	if (require('is-tar')(buf)) {
+		return 'tar';
+	}
 
-    if (require('is-zip')(buf)) {
-        return 'zip';
-    }
+	if (require('is-zip')(buf)) {
+		return 'zip';
+	}
 
-    return false;
+	return false;
 };

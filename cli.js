@@ -12,13 +12,13 @@ var stdin = require('get-stdin');
  */
 
 function help() {
-    console.log(pkg.description);
-    console.log('');
-    console.log('Usage');
-    console.log('  $ cat <file> | archive-type');
-    console.log('');
-    console.log('Example');
-    console.log('  $ cat foo.tar.gz | archive-type');
+	console.log(pkg.description);
+	console.log('');
+	console.log('Usage');
+	console.log('  $ cat <file> | archive-type');
+	console.log('');
+	console.log('Example');
+	console.log('  $ cat foo.tar.gz | archive-type');
 }
 
 /**
@@ -26,8 +26,8 @@ function help() {
  */
 
 if (input.indexOf('-h') !== -1 || input.indexOf('--help') !== -1) {
-    help();
-    return;
+	help();
+	return;
 
 }
 
@@ -36,8 +36,8 @@ if (input.indexOf('-h') !== -1 || input.indexOf('--help') !== -1) {
  */
 
 if (input.indexOf('-v') !== -1 || input.indexOf('--version') !== -1) {
-    console.log(pkg.version);
-    return;
+	console.log(pkg.version);
+	return;
 }
 
 /**
@@ -45,15 +45,15 @@ if (input.indexOf('-v') !== -1 || input.indexOf('--version') !== -1) {
  */
 
 function run(data) {
-    var type = archiveType(new Buffer(data));
+	var type = archiveType(new Buffer(data));
 
-    if (type) {
-        console.log(type);
-        return;
-    }
+	if (type) {
+		console.log(type);
+		return;
+	}
 
-    console.error('Not a recognized archive');
-    process.exit(1);
+	console.error('Not a recognized archive');
+	process.exit(1);
 }
 
 /**
@@ -61,14 +61,14 @@ function run(data) {
  */
 
 if (process.stdin.isTTY) {
-    if (!input) {
-        help();
-        return;
-    }
+	if (!input) {
+		help();
+		return;
+	}
 
-    run(readChunk.sync(input, 0, 261));
+	run(readChunk.sync(input, 0, 261));
 } else {
-    stdin(function (data) {
-        run(data);
-    });
+	stdin(function (data) {
+		run(data);
+	});
 }
