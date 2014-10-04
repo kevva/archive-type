@@ -12,13 +12,18 @@ var stdin = require('get-stdin');
  */
 
 function help() {
-	console.log(pkg.description);
-	console.log('');
-	console.log('Usage');
-	console.log('  $ cat <file> | archive-type');
-	console.log('');
-	console.log('Example');
-	console.log('  $ cat foo.tar.gz | archive-type');
+	console.log([
+		'',
+		'  ' + pkg.description,
+		'',
+		'  Usage',
+		'    archive-type <file>',
+		'    cat <file> | archive-type',
+		'',
+		'  Example',
+		'    archive-type foo.tar.gz',
+		'    cat foo.tar.gz | archive-type'
+	].join('\n'));
 }
 
 /**
@@ -28,7 +33,6 @@ function help() {
 if (input.indexOf('-h') !== -1 || input.indexOf('--help') !== -1) {
 	help();
 	return;
-
 }
 
 /**
@@ -66,9 +70,14 @@ if (process.stdin.isTTY) {
 		return;
 	}
 
-	run(readChunk.sync(input, 0, 261));
-} else {
-	stdin.buffer(function (data) {
-		run(data);
+	readChunk(input[0], 0, 262, function (err, buf) {
+		if (err) {
+			console.error(err);
+			process.exit(1);
+		}
+
+		run(buf);
 	});
+} else {
+	stdin.buffer(run);
 }
