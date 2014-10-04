@@ -38,7 +38,7 @@
     "type"
   ],
   "dependencies": {
-    "get-stdin": "^2.0.0",
+    "get-stdin": "^3.0.0",
     "is-7zip": "^1.0.0",
     "is-bzip2": "^1.0.0",
     "is-gzip": "^1.0.0",
