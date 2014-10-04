@@ -42,9 +42,11 @@ $ npm install --global archive-type
 $ archive-type --help
 
 Usage
+  $ archive-type <file>
   $ cat <file> | archive-type
 
 Example
+  $ archive-type foo.tar.gz
   $ cat foo.tar.gz | archive-type
 ```
 
