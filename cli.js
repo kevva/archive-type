@@ -2,47 +2,25 @@
 'use strict';
 
 var archiveType = require('./');
-var input = process.argv.slice(2);
-var pkg = require('./package.json');
+var meow = require('meow');
 var readChunk = require('read-chunk');
 var stdin = require('get-stdin');
 
 /**
- * Help screen
+ * Initialize CLI
  */
 
-function help() {
-	console.log([
+var cli = meow({
+	help: [
+		'Usage',
+		'  archive-type <file>',
+		'  cat <file> | archive-type',
 		'',
-		'  ' + pkg.description,
-		'',
-		'  Usage',
-		'    archive-type <file>',
-		'    cat <file> | archive-type',
-		'',
-		'  Example',
-		'    archive-type foo.tar.gz',
-		'    cat foo.tar.gz | archive-type'
-	].join('\n'));
-}
-
-/**
- * Show help
- */
-
-if (input.indexOf('-h') !== -1 || input.indexOf('--help') !== -1) {
-	help();
-	return;
-}
-
-/**
- * Show package version
- */
-
-if (input.indexOf('-v') !== -1 || input.indexOf('--version') !== -1) {
-	console.log(pkg.version);
-	return;
-}
+		'Example',
+		'  archive-type foo.tar.gz',
+		'  cat foo.tar.gz | archive-type'
+	].join('\n')
+});
 
 /**
  * Run
@@ -51,13 +29,12 @@ if (input.indexOf('-v') !== -1 || input.indexOf('--version') !== -1) {
 function run(data) {
 	var type = archiveType(new Buffer(data));
 
-	if (type) {
-		console.log(type);
-		return;
+	if (!type) {
+		console.error('Not a recognized archive');
+		process.exit(1);
 	}
 
-	console.error('Not a recognized archive');
-	process.exit(1);
+	console.log(type);
 }
 
 /**
@@ -65,14 +42,21 @@ function run(data) {
  */
 
 if (process.stdin.isTTY) {
-	if (!input) {
-		help();
-		return;
+	if (!cli.input.length) {
+		console.error([
+			'Specify a valid archive file',
+			'',
+			'Example',
+			'  archive-type foo.tar.gz',
+			'  cat foo.tar.gz | archive-type'
+		].join('\n'));
+
+		process.exit(1);
 	}
 
-	readChunk(input[0], 0, 262, function (err, buf) {
+	readChunk(cli.input[0], 0, 262, function (err, buf) {
 		if (err) {
-			console.error(err);
+			console.error(err.message);
 			process.exit(1);
 		}
 

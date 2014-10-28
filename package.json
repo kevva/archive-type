@@ -45,6 +45,7 @@
     "is-rar": "^1.0.0",
     "is-tar": "^1.0.0",
     "is-zip": "^1.0.0",
+    "meow": "^2.0.0",
     "read-chunk": "^1.0.0"
   },
   "devDependencies": {
