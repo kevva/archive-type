@@ -10,11 +10,11 @@ test('detect archive type from Buffer', function (t) {
 	t.plan(4);
 
 	fs.readFile(path.join(__dirname, 'fixtures/test.tar'), function (err, buf) {
-		t.assert(!err);
+		t.assert(!err, err);
 		t.assert(archiveType(buf) === 'tar');
 
 		fs.readFile(path.join(__dirname, 'fixtures/test.zip'), function (err, buf) {
-			t.assert(!err);
+			t.assert(!err, err);
 			t.assert(archiveType(buf) === 'zip');
 		});
 	});
