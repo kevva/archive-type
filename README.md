@@ -16,7 +16,7 @@ var archiveType = require('archive-type');
 var read = require('fs').readFileSync;
 
 archiveType(read('foo.zip'));
-// => zip
+//=> { ext: 'zip', mime: 'application/zip' }
 ```
 
 
