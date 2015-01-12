@@ -1,5 +1,7 @@
 'use strict';
 
+var fileType = require('file-type');
+
 /**
  * Detect the archive type of a Buffer/Uint8Array
  *
@@ -8,33 +10,15 @@
  */
 
 module.exports = function (buf) {
-	if (!buf) {
-		return false;
-	}
+	var ret = fileType(buf);
+	var exts = [
+		'7z',
+		'bz2',
+		'gz',
+		'rar',
+		'tar',
+		'zip'
+	];
 
-	if (require('is-7zip')(buf)) {
-		return '7z';
-	}
-
-	if (require('is-bzip2')(buf)) {
-		return 'bz2';
-	}
-
-	if (require('is-gzip')(buf)) {
-		return 'gz';
-	}
-
-	if (require('is-rar')(buf)) {
-		return 'rar';
-	}
-
-	if (require('is-tar')(buf)) {
-		return 'tar';
-	}
-
-	if (require('is-zip')(buf)) {
-		return 'zip';
-	}
-
-	return false;
+	return exts.indexOf(ret && ret.ext) !== -1 ? ret : null;
 };
