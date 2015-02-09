@@ -6,10 +6,6 @@ var meow = require('meow');
 var readChunk = require('read-chunk');
 var stdin = require('get-stdin');
 
-/**
- * Initialize CLI
- */
-
 var cli = meow({
 	help: [
 		'Usage',
@@ -22,10 +18,6 @@ var cli = meow({
 	].join('\n')
 });
 
-/**
- * Run
- */
-
 function run(data) {
 	var type = archiveType(new Buffer(data));
 
@@ -36,10 +28,6 @@ function run(data) {
 
 	console.log(type);
 }
-
-/**
- * Get stdin
- */
 
 if (process.stdin.isTTY) {
 	if (!cli.input.length) {
@@ -54,14 +42,7 @@ if (process.stdin.isTTY) {
 		process.exit(1);
 	}
 
-	readChunk(cli.input[0], 0, 262, function (err, buf) {
-		if (err) {
-			console.error(err.message);
-			process.exit(1);
-		}
-
-		run(buf);
-	});
+	run(readChunk.sync(cli.input[0], 0, 262));
 } else {
 	stdin.buffer(run);
 }

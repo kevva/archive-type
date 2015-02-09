@@ -2,13 +2,6 @@
 
 var fileType = require('file-type');
 
-/**
- * Detect the archive type of a Buffer/Uint8Array
- *
- * @param {Buffer} buf
- * @api public
- */
-
 module.exports = function (buf) {
 	var ret = fileType(buf);
 	var exts = [
