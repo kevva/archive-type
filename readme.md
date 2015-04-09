@@ -5,15 +5,16 @@
 
 ## Install
 
-```sh
+```
 $ npm install --save archive-type
 ```
+
 
 ## Usage
 
 ```js
-var archiveType = require('archive-type');
 var read = require('fs').readFileSync;
+var archiveType = require('archive-type');
 
 archiveType(read('foo.zip'));
 //=> {ext: 'zip', mime: 'application/zip'}
@@ -35,20 +36,20 @@ It only needs the first 261 bytes.
 
 ## CLI
 
-```sh
+```
 $ npm install --global archive-type
 ```
 
-```sh
+```
 $ archive-type --help
 
-Usage
-  $ archive-type <file>
-  $ cat <file> | archive-type
+  Usage
+    $ archive-type <file>
+    $ cat <file> | archive-type
 
-Example
-  $ archive-type foo.tar.gz
-  $ cat foo.tar.gz | archive-type
+  Example
+    $ archive-type foo.tar.gz
+    $ cat foo.tar.gz | archive-type
 ```
 
 

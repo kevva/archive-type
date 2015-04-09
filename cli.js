@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 'use strict';
 
-var archiveType = require('./');
 var meow = require('meow');
+var getStdin = require('get-stdin');
 var readChunk = require('read-chunk');
-var stdin = require('get-stdin');
+var archiveType = require('./');
 
 var cli = meow({
 	help: [
@@ -44,5 +44,5 @@ if (process.stdin.isTTY) {
 
 	run(readChunk.sync(cli.input[0], 0, 262));
 } else {
-	stdin.buffer(run);
+	getStdin.buffer(run);
 }
