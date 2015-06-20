@@ -15,7 +15,7 @@ var cli = meow({
 		'Example',
 		'  archive-type foo.tar.gz',
 		'  cat foo.tar.gz | archive-type'
-	].join('\n')
+	]
 });
 
 function run(data) {

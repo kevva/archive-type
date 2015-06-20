@@ -40,7 +40,7 @@
   "dependencies": {
     "file-type": "^2.0.1",
     "get-stdin": "^4.0.1",
-    "meow": "^3.1.0",
+    "meow": "^3.3.0",
     "read-chunk": "^1.0.0"
   },
   "devDependencies": {
