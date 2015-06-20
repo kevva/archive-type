@@ -1,5 +1,4 @@
 'use strict';
-
 var fileType = require('file-type');
 
 module.exports = function (buf) {

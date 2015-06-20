@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 'use strict';
-
 var meow = require('meow');
 var getStdin = require('get-stdin');
 var readChunk = require('read-chunk');
@@ -29,19 +28,19 @@ function run(data) {
 	console.log(type);
 }
 
-if (process.stdin.isTTY) {
-	if (!cli.input.length) {
-		console.error([
-			'Specify a valid archive file',
-			'',
-			'Example',
-			'  archive-type foo.tar.gz',
-			'  cat foo.tar.gz | archive-type'
-		].join('\n'));
+if (!cli.input.length && process.stdin.isTTY) {
+	console.error([
+		'Specify a valid archive file',
+		'',
+		'Example',
+		'  archive-type foo.tar.gz',
+		'  cat foo.tar.gz | archive-type'
+	].join('\n'));
 
-		process.exit(1);
-	}
+	process.exit(1);
+}
 
+if (cli.input.length) {
 	run(readChunk.sync(cli.input[0], 0, 262));
 } else {
 	getStdin.buffer(run);
