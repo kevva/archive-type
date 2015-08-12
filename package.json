@@ -12,9 +12,6 @@
   "engines": {
     "node": ">=0.10.0"
   },
-  "bin": {
-    "archive-type": "cli.js"
-  },
   "scripts": {
     "test": "node test/test.js"
   },
