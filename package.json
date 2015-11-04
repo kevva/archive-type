@@ -35,7 +35,7 @@
     "type"
   ],
   "dependencies": {
-    "file-type": "^2.0.1"
+    "file-type": "^3.1.0"
   },
   "devDependencies": {
     "ava": "^0.0.4"
