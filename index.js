@@ -9,7 +9,8 @@ module.exports = function (buf) {
 		'gz',
 		'rar',
 		'tar',
-		'zip'
+		'zip',
+		'xz'
 	];
 
 	return exts.indexOf(ret && ret.ext) !== -1 ? ret : null;
