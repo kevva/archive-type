@@ -1,6 +1,6 @@
 {
   "name": "archive-type",
-  "version": "3.0.2",
+  "version": "3.1.0",
   "description": "Detect the archive type of a Buffer/Uint8Array",
   "license": "MIT",
   "repository": "kevva/archive-type",
