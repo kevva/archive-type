@@ -38,5 +38,10 @@
   },
   "devDependencies": {
     "ava": "^0.0.4"
+  },
+  "xo": {
+    "rules": {
+      "no-negated-condition": 0
+    }
   }
 }
