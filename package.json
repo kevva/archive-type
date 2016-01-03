@@ -13,7 +13,7 @@
     "node": ">=0.10.0"
   },
   "scripts": {
-    "test": "node test/test.js"
+    "test": "xo && node test/test.js"
   },
   "files": [
     "index.js"
@@ -37,6 +37,12 @@
     "file-type": "^3.1.0"
   },
   "devDependencies": {
-    "ava": "^0.0.4"
+    "ava": "^0.0.4",
+    "xo": "*"
+  },
+  "xo": {
+    "rules": {
+      "no-negated-condition": 0
+    }
   }
 }
