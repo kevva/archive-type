@@ -1,17 +1,16 @@
-'use strict';
-var fs = require('fs');
-var path = require('path');
-var test = require('ava');
-var archiveType = require('../');
+import fs from 'fs';
+import path from 'path';
+import pify from 'pify';
+import Promise from 'pinkie-promise';
+import test from 'ava';
+import fn from '../';
 
-test('detect archive type from Buffer', function (t) {
-	t.plan(4);
+test(async t => {
+	const tar = await pify(fs.readFile, Promise)(path.join(__dirname, 'fixtures/test.tar'));
+	const zip = await pify(fs.readFile, Promise)(path.join(__dirname, 'fixtures/test.zip'));
 
-	var tar = fs.readFileSync(path.join(__dirname, 'fixtures/test.tar'), null);
-	var zip = fs.readFileSync(path.join(__dirname, 'fixtures/test.zip'), null);
-
-	t.assert(archiveType(tar).ext === 'tar', archiveType(tar).ext);
-	t.assert(archiveType(tar).mime === 'application/x-tar', archiveType(tar).mime);
-	t.assert(archiveType(zip).ext === 'zip', archiveType(zip).ext);
-	t.assert(archiveType(zip).mime === 'application/zip', archiveType(zip).mime);
+	t.is(fn(tar).ext, 'tar');
+	t.is(fn(tar).mime, 'application/x-tar');
+	t.is(fn(zip).ext, 'zip');
+	t.is(fn(zip).mime, 'application/zip');
 });

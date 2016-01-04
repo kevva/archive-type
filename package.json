@@ -13,7 +13,7 @@
     "node": ">=0.10.0"
   },
   "scripts": {
-    "test": "xo && node test/test.js"
+    "test": "xo && ava"
   },
   "files": [
     "index.js"
@@ -37,10 +37,15 @@
     "file-type": "^3.1.0"
   },
   "devDependencies": {
-    "ava": "^0.0.4",
+    "ava": "*",
+    "pify": "^2.3.0",
+    "pinkie-promise": "^2.0.0",
     "xo": "*"
   },
   "xo": {
+    "ignores": [
+      "test/test.js"
+    ],
     "rules": {
       "no-negated-condition": 0
     }
