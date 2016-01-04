@@ -15,11 +15,13 @@ $ npm install --save archive-type
 ## Usage
 
 ```js
-var readFileSync = require('fs').readFileSync;
-var archiveType = require('archive-type');
+const fs = require('fs');
+const archiveType = require('archive-type');
 
-archiveType(readFileSync('foo.zip'));
-//=> {ext: 'zip', mime: 'application/zip'}
+fs.readFile('foo.zip', (err, data) => {
+	archiveType(data);
+	//=> {ext: 'zip', mime: 'application/zip'}
+});
 ```
 
 
