@@ -2,8 +2,6 @@
 
 > Detect the archive type of a Buffer/Uint8Array
 
-*See [archive-type-cli](https://github.com/kevva/archive-type-cli) for the command-line version.*
-
 
 ## Install
 
@@ -36,6 +34,11 @@ Returns [`7z`](https://github.com/kevva/is-7zip), [`bz2`](https://github.com/kev
 Type: `buffer` *(Node.js)*, `uint8array`
 
 It only needs the first 261 bytes.
+
+
+## Related
+
+* [archive-type-cli](https://github.com/kevva/archive-type-cli) - CLI for this module
 
 
 ## License
