@@ -10,7 +10,7 @@
     "url": "https://github.com/kevva"
   },
   "engines": {
-    "node": ">=0.10.0"
+    "node": ">=4"
   },
   "scripts": {
     "test": "xo && ava"
@@ -31,23 +31,15 @@
     "mime",
     "rar",
     "zip",
+    "file",
     "type"
   ],
   "dependencies": {
-    "file-type": "^3.1.0"
+    "file-type": "^4.2.0"
   },
   "devDependencies": {
     "ava": "*",
     "pify": "^2.3.0",
-    "pinkie-promise": "^2.0.0",
     "xo": "*"
-  },
-  "xo": {
-    "ignores": [
-      "test/test.js"
-    ],
-    "rules": {
-      "no-negated-condition": 0
-    }
   }
 }

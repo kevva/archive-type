@@ -13,32 +13,48 @@ $ npm install --save archive-type
 ## Usage
 
 ```js
-const fs = require('fs');
 const archiveType = require('archive-type');
+const readChunk = require('read-chunk');
+const buffer = readChunk.sync('unicorn.zip', 0, 262);
 
-fs.readFile('foo.zip', (err, data) => {
-	archiveType(data);
-	//=> {ext: 'zip', mime: 'application/zip'}
-});
+archiveType(buffer);
+//=> {ext: 'zip', mime: 'application/zip'}
 ```
 
 
 ## API
 
-### archiveType(buf)
+### archiveType(input)
 
-Returns [`7z`](https://github.com/kevva/is-7zip), [`bz2`](https://github.com/kevva/is-bzip2), [`gz`](https://github.com/kevva/is-gzip), [`rar`](https://github.com/kevva/is-rar), [`tar`](https://github.com/kevva/is-tar), [`zip`](https://github.com/kevva/is-zip), [`xz`](https://github.com/kevva/is-xz) or `false`.
+Returns an `Object` with:
 
-#### buf
+- `ext` - One of the [supported file types](#supported-file-types)
+- `mime` - The [MIME type](http://en.wikipedia.org/wiki/Internet_media_type)
 
-Type: `buffer` *(Node.js)*, `uint8array`
+Or `null` when no match.
 
-It only needs the first 261 bytes.
+#### input
+
+Type: `Buffer` `Uint8Array`
+
+It only needs the first 262 bytes.
+
+
+## Supported file types
+
+- `7z`
+- `bz2`
+- `gz`
+- `rar`
+- `tar`
+- `zip`
+- `xz`
+- `gz`
 
 
 ## Related
 
-* [archive-type-cli](https://github.com/kevva/archive-type-cli) - CLI for this module
+- [archive-type-cli](https://github.com/kevva/archive-type-cli) - CLI for this module
 
 
 ## License
