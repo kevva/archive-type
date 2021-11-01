@@ -31,6 +31,7 @@
     "mime",
     "rar",
     "zip",
+    "zstd",
     "file",
     "type"
   ],

@@ -9,7 +9,8 @@ const exts = new Set([
 	'tar',
 	'zip',
 	'xz',
-	'gz'
+	'gz',
+	'zst'
 ]);
 
 module.exports = input => {

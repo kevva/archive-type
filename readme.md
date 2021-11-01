@@ -50,6 +50,7 @@ It only needs the first 262 bytes.
 - `zip`
 - `xz`
 - `gz`
+- `zst`
 
 
 ## Related
